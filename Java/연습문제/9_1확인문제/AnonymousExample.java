@@ -1,15 +1,15 @@
-package sec02.verify.exam01;
+package sec02.verify.exam02;
 
 public class AnonymousExample {
 	public static void main(String[] args) {
 		Anonymous anony = new Anonymous();
-		anony.field.start();
+		anony.field.run();
 		anony.method1();
 		anony.method2(
-			new Worker() {
+			new Vehicle() {
 				@Override
-				public void start() {
-					System.out.println("테스트를 합니다.");
+				public void run() {
+					System.out.println("트럭이 달립니다.");
 				}
 			}
 		);
