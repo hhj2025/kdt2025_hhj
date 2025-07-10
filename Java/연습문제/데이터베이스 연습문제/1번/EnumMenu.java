@@ -1,0 +1,5 @@
+package database.pratice;
+
+public enum EnumMenu {
+	MENU_EXIT, MENU_LIST, MENU_INSERT, MENU_UPDATE, MENU_DELETE 
+}
