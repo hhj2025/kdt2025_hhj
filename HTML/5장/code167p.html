@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+    list-style: none;
+}
+        form{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>프로트엔트 개발자 지원서</h1>
+    <p>HTML, CSS, 자바스크립트의 기술을 이해하고 실무 경험이 있는 분을 찾<br>
+        습니다.</p>
+    <hr>
+    <form>
+        <legend><strong>개인 정보</strong></legend>
+        <ul>
+            <li>
+            <label for="name">이름</label>
+            <input type="text" id="name" placeholder="공백 없이 입력하세요.">
+            </li>
+            <li>
+            <label for="phone">연락처</label>
+            <input type="tel" id="phone">
+            </li>
+        </ul>
+        <legend><strong>지원 분야</strong></legend>
+        <ul>
+            <li>
+            <label><input type="radio" name="field">웹 퍼블리싱</label>
+            </li>
+            <li>
+            <label><input type="radio" name="field">웹 어플리케이션 개발</label>
+            </li>
+            <li>
+            <label><input type="radio" name="field">개발 환경 개선</label>
+            </li>
+        </ul>
+        <legend><strong>지원 동기</strong></legend>
+            <label for="motivation"></label>
+            <textarea id="motivation" cols="60" rows="5" placeholder="본사 지원 동기를 간략히 써 주세요."></textarea>
+            <br>
+            <button type="submit">접수하기</button>
+            <button type="reset">다시 쓰기</button>
+    </form>
+</body>
+</html>
