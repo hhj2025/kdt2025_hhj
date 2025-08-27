@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+  <style>
+   
+  </style>
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+<div class="signup-form">
+      <h2>회원가입</h2>
+      <form  action='signup' id="signupForm" >
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name"  />
+        <div id="nameError" class="error"></div>
+
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email"  />
+        <div id="emailError" class="error"></div>
+
+        <label for="phone">전화번호</label>
+        <input type="text" id="phone" name="phone" placeholder="010-1234-5678" />
+        <div id="phoneError" class="error"></div>
+
+        <label for="address">주소</label>
+        <input type="text" id="address" name="address" />
+        <div id="addressError" class="error"></div>
+
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password"  />
+        <div id="passwordError" class="error"></div>
+
+        <label for="confirm_password">비밀번호 확인</label>
+        <input type="password" id="confirm_password" name="confirm_password" />
+        <div id="confirmError" class="error"></div>
+
+        <input type="submit" value="가입하기" />
+      </form>
+    </div>
+    <script>
+        document.querySelector('#signupForm').addEventListener('submit', (e)=>{
+            let valid= true;
+            const name = document.querySelector('#name');
+            const email = document.querySelector('#email');
+            const phone = document.querySelector('#phone');
+            const address = document.querySelector('#address');
+            const password = document.querySelector('#password');
+            const confirm_password = document.querySelector('#confirm_password');
+
+            
+            const nameError = document.querySelector('#nameError');
+            const emailError = document.querySelector('#emailError');
+            const phoneError = document.querySelector('#phoneError');
+            const addressError = document.querySelector('#addressError');
+            const passwordError = document.querySelector('#passwordError');
+            const confirmError = document.querySelector('#confirmError');
+
+             nameError.textContent = '';
+             emailError.textContent = '';
+             phoneError.textContent = '';
+             addressError.textContent = '';
+             passwordError.textContent = '';
+             confirmError.textContent = '';
+             
+
+            if (name.value.trim() === '') {
+                nameError.textContent = '이름을 입력하세요.';
+                valid = false;
+            }
+
+            if (email.value.trim() === '') {
+                emailError.textContent = '이메일을 입력하세요.';
+                valid = false;
+            }
+
+            if (phone.value.trim() === '') {
+                phoneError.textContent = '전화번호를 입력하세요.';
+                valid = false;
+            } else {
+                const phonePattern = /^010-\d{4}-\d{4}$/;
+                if (!phonePattern.test(phone.value.trim())) {
+                    phoneError.textContent = '전화번호 형식이 올바르지 않습니다. (예: 010-1234-5678)';
+                    valid = false;
+                }
+            }
+
+            if (address.value.trim() === '') {
+                addressError.textContent = '주소를 입력하세요.';
+                valid = false;
+            }
+
+            if (password.value.trim() === '') {
+                passwordError.textContent = '비밀번호를 입력하세요.';
+                valid = false;
+            } else if (password.value.length < 6 || password.value.length > 20) {
+                passwordError.textContent = '비밀번호는 6~20자로 입력하세요.';
+                valid = false;
+            }
+
+            if (confirm_password.value.trim() === '') {
+                confirmError.textContent = '비밀번호 확인을 입력하세요.';
+                valid = false;
+            } else if (password.value !== confirm_password.value) {
+                confirmError.textContent = '비밀번호가 일치하지 않습니다.';
+                valid = false;
+            }
+            
+            if (!valid) {
+                console.log('valid false');
+             e.preventDefault(); // 전송 중지
+            }
+        });
+    </script>
+</body>
+</html>
